@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/edit-book.css}">
+</head>
+<body>
+    
+    <div id="container">
+        <h2>Edit Book</h2>
+        <p>Developed by SaiManikanta<p>
+        <!-- Show error message if validation fails -->
+        <p id="error-message" th:if="${error}">[[${error}]]</p>
+
+        <form th:action="@{/books/update/{id}(id=${book.bookId})}" method="post">
+            <input type="hidden" th:field="*{book.bookId}" />
+
+            <label for="title">Title:</label>
+            <input id="title" type="text" th:field="*{book.bookTitle}" />
+            
+            <label for="author">Author:</label>
+            <input id="author" type="text" th:field="*{book.bookAuthor}" />
+            
+            <label for="genre">Genre:</label>
+            <input id="genre" type="text" th:field="*{book.bookGenre}" required/>
+
+            <label for="availability">Availability:</label>
+            <select id="availability" th:field="*{book.bookAvailabilityStatus}">
+                <option value="Available">Available</option>
+                <option value="Checked Out">Checked Out</option>
+            </select>
+
+            <button id="update-btn" type="submit">Update Book</button>
+        </form>
+
+        <a id="back-link" href="/books">Back to Books List</a>
+    </div>
+</body>
+</html>
