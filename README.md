@@ -11,7 +11,6 @@ This project is part of an **internship assignment** for building a **Digital Li
 The purpose of this assignment is to:
 
 - Develop a **modular and scalable** web-based application.
-- Apply **Spring MVC principles** to build a functional CRUD system.
 - Ensure **data validation** and proper **exception handling**.
 
 ---
